@@ -1,0 +1,651 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Links e Âncoras</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: #ebebeb;
+		background-color: #2f3437;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+	color: #000;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3f9e8b75-f500-4181-8922-26dd8f3e66e4" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="links/icons8-link-100.png"/></div><h1 class="page-title">Links e Âncoras</h1></header><div class="page-body"><h2 id="545adc62-956e-4a72-9826-7655333ac22b" class="">Hiperlink</h2><p id="7cebedd1-0325-4ed1-955a-44f52f7d3362" class="">Os hyperlinks são um dos conceitos mais antigos da história da linguagem HTML. Eles permitem que você ligue um ponto a outro na Web. </p><p id="d86c092a-0aca-4531-8e4e-2b5e70358987" class="">Toda vez que você está acessando um site e clica em um local para ir para outra página, outro site ou até para baixar um arquivo, você está interagindo com um hyperlink.</p><p id="248c4110-9083-442c-8c16-100df144f3c6" class="">
+</p><p id="18a3bb38-f471-4594-ad33-bddda0cba4e3" class="">Até os mecanismos de busca se utilizam dos hyperlinks de um site. O Google, por exemplo, para achar um determinado site, fica vasculhando constantemente todos os outros sites da Internet procurando por links para descobrir novos conteúdos. Por isso é tão importante conseguir links válidos de outros sites para o nosso próprio site.</p><h2 id="6993d613-0a86-4b8f-a174-ffdafafab1a8" class="">Âncoras</h2><p id="323b2224-8f16-4fe4-b089-604a7a972795" class="">Para criar um hyperlink, devemos criar âncoras através da tag <mark class="highlight-purple"><strong>&lt;a&gt;</strong></mark>. O principal 
+atributo dessa tag é o<mark class="highlight-purple"><em> href</em></mark>, que cria uma referência hipertexto. </p><p id="8ecea185-5b7f-4cca-9dc6-52f926796a95" class="">Crie mais uma pasta e o arquivo index com o código base e vá testando os exemplos que forem apresentados</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0ec8cd53-0a46-4b9a-b8cd-e03d1d1dc664"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Dica importante: lembre-se que você pode a criar as tags apenas digitando seu nome, sem os colchetes angulares. Digite apenas <mark class="highlight-purple"><strong>a </strong></mark>e de enter que o parâmetro href automaticamente aparecerá, sem você ter o trabalho de digitar</div></figure><p id="7d38d39b-0a92-488f-a5d6-fdc5f2a6d72e" class="">Vamos ver um exemplo simples:</p><pre id="d86049ee-f2b5-48ee-92e0-be072a137df3" class="code code-wrap"><code>&lt;a href=&quot;https://ijunior.com.br&quot;&gt;Acesse o site da iJunior&lt;/a&gt;</code></pre><p id="bfbabab2-f915-4a9a-b271-f1f9d4d90d6a" class="">Note que dentro do atributo href, o que colocamos foi uma URL completa para outro site.</p><p id="589aced1-26c3-44fc-a596-10fe4fab2a2d" class="">Teste no navegador e você verá que será redirecionado para o site da iJunior</p><p id="d97eb305-2531-4f81-889d-6d4b954bfeec" class="">
+</p><h3 id="d1ebbfdf-9ad4-4840-9c94-00cf26ae70c8" class=""><mark class="highlight-purple">Onde o link vai abrir</mark></h3><p id="1f88480e-3d76-4569-b074-ef1ea6c43fff" class="">Por padrão, sempre que um visitante clique em um hyperlink, o site de destino abre na mesma janela do site que continha esse link. Ou seja, o conteúdo anterior vai deixar de ser exibido para mostrar o novo conteúdo.</p><p id="9a99c377-d246-4b14-8965-a644e4c29394" class="">
+</p><p id="37d824ea-b5c5-4482-aaba-37e5e1d83660" class="">Esse é um comportamento desejado quando o visitante vai continuar a visitar o nosso site, apenas mudando de um documento para outro. Mas e quando um clique leva o visitante para outro site e provavelmente ele nunca mais voltará ao nosso? 
+Para poder controlar onde o site de destino vai abrir, podemos usar o atributo <mark class="highlight-purple"><em><strong>target</strong></em></mark>, que suporta os seguintes principais valores: </p><ul id="7a084121-26d7-4b4f-bf5a-b2a846870d19" class="bulleted-list"><li><mark class="highlight-purple"><strong>_blank </strong></mark>vai abrir o link em uma nova janela em branco</li></ul><ul id="57cf3148-2895-407a-b4c2-6eb13c9713bb" class="bulleted-list"><li><mark class="highlight-purple"><strong>_self</strong></mark> vai abrir o link na janela ou frame atual (padrão)</li></ul><p id="487eb160-30e3-4a71-8239-452c8bce7b4b" class="">Exemplo:</p><pre id="41df9ec0-96c4-44d4-bb8b-424937bc5c66" class="code code-wrap"><code>&lt;a href=&quot;https://ijunior.com.br&quot; target=&quot;_blank&quot;&gt;Acesse o site em uma nova janela&lt;/a&gt;</code></pre><p id="fdc3a8ce-05bd-47af-b5ca-863d9498ab8c" class="">
+</p><h3 id="0f71fd34-25b3-46a6-b717-ed145bdf680f" class=""><mark class="highlight-purple">Esse link é seu ou dos outros?</mark></h3><p id="9a451ce3-b0ac-4dc4-95aa-45535233758a" class="">Existe um recurso bem interessante para links que é indicar qual é a natureza do destino usando o atributo <mark class="highlight-purple"><strong><em>rel</em></strong></mark>. Esse atributo aceita vários valores, entre eles vou citar:</p><ul id="ccd0755c-be00-408e-a260-af0bbb33cce5" class="bulleted-list"><li><strong><mark class="highlight-purple">next</mark></strong> indica que o link é para a próxima parte do documento atual</li></ul><ul id="8a611cde-0f5d-4f73-9436-e02fd6913986" class="bulleted-list"><li><mark class="highlight-purple"><strong>prev</strong></mark> indica que o link é para a parte anterior do documento atual</li></ul><ul id="bb0e0fc0-24bf-4130-93d0-e3ee355fd305" class="bulleted-list"><li><mark class="highlight-purple"><strong>author</strong></mark> indica que é um link para o site do autor do artigo atual</li></ul><ul id="6fac407c-e44c-415a-b155-661bdaefec16" class="bulleted-list"><li><strong><mark class="highlight-purple">external</mark></strong> indica que é um link para outro site que não faz parte do site atual</li></ul><ul id="07fb4d67-2535-4e65-80cc-f3e36d1c0782" class="bulleted-list"><li><mark class="highlight-purple"><strong>nofollow</strong></mark> indica que é um link para um site não endossado, como um link pago</li></ul><p id="a1ab10b2-01cf-44c4-bf0f-74e05ed1b00f" class="">Exemplos:</p><pre id="b97f4446-ba5e-4645-9e0c-f3f38171e879" class="code code-wrap"><code>&lt;a href=pagina2.html rel=&quot;next&quot; target=&quot;_self&quot;&gt;Continuar navegando&lt;/a&gt;</code></pre><p id="d460a9f4-1036-45c5-8d78-0ec3ac2c8604" class="">Esse é o que chamamos de link local ou link interno, já que ele leva o visitante a outra página dentro do nosso próprio site. Note que não é necessário nem indicar a URL completa nesses casos.</p><p id="02751f4a-d1c4-4b78-b3ec-6311e2051260" class="">
+</p><pre id="175a1a72-b00c-4584-b103-d1ba7bb50233" class="code code-wrap"><code>&lt;a href=&quot;https://google.com&quot; rel=&quot;external&quot; target=&quot;_blank&quot;&gt;Abrir outro site&lt;/a&gt;</code></pre><p id="0499fea0-ce2e-42ea-885c-89a4a217c164" class="">Já esse link vai nos levar para um outro site, o que chamamos de link externo. Nestes casos, devemos indicar a URL completa, incluindo o protocolo http:// ou https:// e o caminho que leve à uma página específica, se for necessário.</p><p id="8d9d996d-9759-4314-9334-3e4e7fcef46e" class="">
+</p><h3 id="bc2c873f-178b-44cb-8863-d90a1f9859d3" class=""><mark class="highlight-purple">Downloads</mark></h3><p id="34510a57-71cb-44cb-8afa-e55b85f1f69b" class="">Outra coisa que aparece bastante em sites são os links para efetuar download de algum material em PDF, ou de um arquivo ZIP qualquer. A partir da versão HTML5, as âncoras receberam atributos especiais para isso. Basta fazer o link diretamente para o arquivo que se deseja efetuar o download e adicionar o atributo download com o valor configurado para o nome do arquivo a ser baixado e o atributo type para indicar ao navegador que tipo de arquivo está sendo baixado.</p><p id="c1be7829-3dee-48e4-a615-f1c48203cb19" class="">
+</p><p id="b3facf23-b497-4278-8a06-1e7b442b442f" class="">Vamos ver um exemplo:</p><pre id="ca97a523-1517-431a-bfa0-e488fa7bbbcb" class="code code-wrap"><code>&lt;a href=&quot;logo-html.png&quot; download=&quot;logo-html.png&quot; type=&quot;image/png&quot;&gt;Baixar foto&lt;/a&gt;</code></pre><div id="4f222243-6837-4e5c-afbf-4046bed6a849" class="column-list"><div id="cf898d89-6cc1-4170-9cd7-cd1133afece9" style="width:68.75%" class="column"><p id="b4a61fe3-ad49-4bb7-8135-8d58e791d551" class="">
+</p><p id="66de60da-57db-40d1-9a0a-998ae8a98b9a" class="">Utilizei novamente essa imagem, adicionando na mesma pasta que o arquivo index:</p></div><div id="5b11dd19-3247-4795-b38f-eb2d6ff4495e" style="width:31.25%" class="column"><figure id="b737ffc6-31d7-461d-84d5-89ca2c3ffda7" class="image"><a href="links/logo-html.png"><img style="width:192px" src="links/logo-html.png"/></a></figure></div></div><p id="eac36356-5d39-4f9d-be79-3c1bf96402b5" class="">Aqui vão alguns media types bem usados no nosso dia-a-dia:</p><div id="8ac564d4-ef95-4187-8a23-18fb300634b0" class="column-list"><div id="06343f6d-2fa3-4db4-8cd7-9b13a39ca0c1" style="width:33.333333333333336%" class="column"><ul id="63d2d16a-ee6f-42dd-a54c-74f7b018c02c" class="bulleted-list"><li>application/zip</li></ul><ul id="b34e9302-b5e1-444d-9027-e40938b18a7f" class="bulleted-list"><li>text/html</li></ul><ul id="f1492c7e-d471-465b-9a17-2bce34931e10" class="bulleted-list"><li>text/css</li></ul><ul id="b3ae5f85-390a-4660-9c18-8436039f773e" class="bulleted-list"><li>text/javascript</li></ul></div><div id="d0cd6498-640c-4827-a6c9-bb2227070762" style="width:33.333333333333336%" class="column"><ul id="fed00a41-9039-46ae-9e39-bd5699f92289" class="bulleted-list"><li>video/mp4</li></ul><ul id="edaef399-b9af-44f8-b3f3-69fd65524f8a" class="bulleted-list"><li>video/H264</li></ul><ul id="aeafefd7-d3dc-4d8a-8aff-6bbd5b934307" class="bulleted-list"><li>video/JPEG</li></ul><ul id="38d1a10e-fe14-4f16-98e4-b3d24ac6d177" class="bulleted-list"><li>audio/aac</li></ul></div><div id="b0f35eab-6763-40b3-920a-2dce10ec474e" style="width:33.33333333333333%" class="column"><ul id="0c7dcebd-7dea-4bdc-a706-c3d6423cd457" class="bulleted-list"><li>audio/mpeg</li></ul><ul id="37cdb699-8f0c-4204-bd20-a7871948b16e" class="bulleted-list"><li>font/ttf</li></ul><ul id="54bb28e5-bedb-4a1f-a406-4cb2ea6ef45a" class="bulleted-list"><li>image/jpeg</li></ul><ul id="2e40b6f0-ddf5-4241-b4c5-75a8aae99a4f" class="bulleted-list"><li>image/png</li></ul></div></div><h2 id="938951e4-b861-4fea-a1ce-c72ed3889eee" class="block-color-red">Teste seus conhecimentos</h2><div id="684f440c-9a6d-463c-a62b-50eacd40a889" class="column-list"><div id="834273f4-b100-4fad-9503-140b55c92539" style="width:75%" class="column"><p id="c5b6d37f-e490-4f17-bb36-456cc5f4ae55" class="">1) Toda vez que estamos em um site e clicamos em uma área sensível que nos leva a outro ponto ou a outro documento , estamos interagindo com um: </p></div><div id="2b2436dd-652c-48eb-aa52-a0b8b7d84c93" style="width:24.999999999999996%" class="column"><p id="f5e3b197-f72b-441e-bea2-79f231c66c4e" class="">a) hyperlink
+b) metadado
+c) ancoramento
+d) subdomínio</p></div></div><hr id="4478452c-06b1-4fb8-8d86-7f5172f98b9a"/><div id="291e6750-a7b6-4afb-8bb3-10badd1a721c" class="column-list"><div id="0e381f36-3370-4ce0-8d7d-cb1e9ea881d2" style="width:81.25%" class="column"><p id="d07d4c35-e2ef-4345-a112-87482991947d" class="">2) Para criarmos links em nosso site, utilizaremos a tag:</p></div><div id="dc399c73-eac7-4271-98eb-2f840617840c" style="width:18.750000000000004%" class="column"><p id="241e7800-44ee-4dca-8b46-c41c6636129a" class="">a) &lt;link&gt;
+b) &lt;l&gt;
+c) &lt;lnk&gt;
+d)&lt;a&gt;</p></div></div><hr id="ef28ac57-dcea-4314-b420-4b4b2aa790f9"/><div id="38567775-9040-4225-ab38-76b93c6e3703" class="column-list"><div id="93616800-9cf9-4776-8ecd-2c2a304436ca" style="width:81.25%" class="column"><p id="f74b73c0-6e6d-44c0-86a6-2d61e08e505c" class="">3) Dentro da tag de âncora, o parâmetro _______ serve para indicar a URL completa para onde o fluxo será desviado</p></div><div id="adbbbb40-1219-4e90-9e63-727c43dda9a1" style="width:18.75%" class="column"><p id="367a8f01-f71a-43e7-803f-fe8d652506e6" class="">a) destiny
+b) ref
+c) href
+d) link</p></div></div><hr id="f4fac00c-09ef-44d8-9675-2a7e5ca08f4e"/><div id="9f4ef96a-a9eb-49d4-8dea-4855b98922bb" class="column-list"><div id="92d3268b-85ab-4929-97ff-4bcd7cc02b74" style="width:87.5%" class="column"><p id="43ae918d-34f1-4a4c-b1e5-9666f46e27a6" class="">4) Ao criar links que levam a documentos que estão em pastas imediatamente superiores na hierarquia do site devemos adicionar ao links os símbolos:</p></div><div id="f3090a0a-67b3-40c2-b5ad-bce05036aae7" style="width:12.499999999999995%" class="column"><p id="758d53a4-ddd3-46f5-88ed-22bb66981850" class="">a) . . /
+b) &lt;/
+c) # /
+d) -/</p></div></div></div></article></body></html>

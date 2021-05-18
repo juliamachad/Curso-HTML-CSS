@@ -1,0 +1,659 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hierarquia de Títulos</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: #ebebeb;
+		background-color: #2f3437;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+	color: #000;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c8e3130a-bfea-494b-9ea7-3483740eee41" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="titulos/titulo.png"/></div><h1 class="page-title">Hierarquia de Títulos</h1></header><div class="page-body"><p id="d420f7e0-36cf-4327-a1af-1c956b1cc67c" class="">Para entender melhor a hierarquia de títulos, vamos começar com um exercício prático</p><p id="06495b27-820e-446d-bedc-c56a01c825d5" class="">Vamos analisar uma matéria da revista VOCÊ S/A. Não precisa se focar em ler o conteúdo, 
+apenas olhe para a imagem a seguir e tente identificar seus componentes visuais.</p><p id="bc882738-c448-4c21-a700-376baa8061f7" class="">
+</p><figure id="eb7fa04c-a627-4905-aed1-e53b9a5609eb" class="image"><a href="titulos/Untitled.png"><img style="width:431px" src="titulos/Untitled.png"/></a></figure><p id="fdf769b8-a8cf-4fb0-b35b-ffe801d6b788" class="">
+</p><p id="7ad843f4-a342-4c77-8ed2-96651716eba6" class="">Agora vamos procurar identificar a sua hierarquia de títulos. </p><p id="ce4708f7-afef-4867-a24a-9474bb8d9bc3" class="">Com toda certeza, se eu te perguntar qual é o título principal da matéria, a resposta vem imediatamente: “Falta de sintonia”. Isso acontece porque esse é o texto que está em destaque principal no texto.</p><div id="f6b0a6d0-4a02-4c5e-81f8-cd7b40c844d0" class="column-list"><div id="17b62f1f-fb29-4ac9-821e-815ec0371447" style="width:56.25%" class="column"><p id="d5b6a64b-536f-431b-a67c-f7a6bde10096" class="">Mas será que existem outros títulos nessa página? Com uma breve análise conseguir perceber outros títulos:
+</p></div><div id="948433fc-f734-4a63-ba33-05ed5c13c328" style="width:43.75000000000001%" class="column"><p id="f05a497a-616e-4ccc-8914-99be237f94fd" class="">• Pense antes de agir 
+• Passe mais tempo com seu desafeto 
+• Saiba com quem está lidando 
+• Tenha objetividade</p></div></div><p id="4d6bd9a6-9a5c-4304-ab6e-8a53f379ee0c" class="">Percebemos também que estes não são semelhantes ao título principal, pois se tratam de subtítulos, que com certeza são partes que falam sobre o assunto “Falta de sintonia”, mas separa o tema principal em subtemas para melhorar a organização dos “pensamentos&quot;</p><p id="5b2255e8-45fe-4bbe-9dad-8c7c676ce2c9" class="">
+</p><p id="23aeeb07-dd13-4f54-9dcd-4495858a486b" class="">
+</p><h2 id="c742323e-d1aa-4dc3-a115-fbc9fe0a9540" class="">Títulos em HTML</h2><p id="e99e1b35-6422-47ce-9a04-569fea909686" class="">Os títulos em HTML são conhecidos como headings (sim, título em inglês)</p><p id="3d509f09-df98-4834-b619-c50a0fae3a62" class="">
+</p><p id="7788f7cd-36c0-43c3-ac7e-9854e5836b61" class="">Os títulos possuem <strong>SEIS NÍVEIS</strong> de hierarquia, e esses níveis servem para organizar nosso conteúdo. </p><div id="b9e6acc9-d9d6-4109-ba24-74c215a3cb44" class="column-list"><div id="78d20421-c2e1-4937-8af2-7033c5a3b050" style="width:31.25%" class="column"><p id="a2c85f85-c44b-4eed-bb07-7c10ea9ea579" class="">Para isso, usamos as tags :</p></div><div id="c7ca1a0d-df5d-4fdc-8167-11269e3e667c" style="width:68.75%" class="column"><p id="cbdf3a76-7523-4552-a1aa-badfb62f38a7" class="">&lt;h1&gt;&lt;/h1&gt;</p><p id="ea068bd5-020f-432c-b598-52b1b7aa75f9" class="">&lt;h2&gt;&lt;/h2&gt;</p><p id="cbcba098-2cef-48cb-a87b-c8ca05aaad54" class="">&lt;h3&gt;&lt;/h3&gt;</p><p id="e7456fc3-0cc8-4aea-8bf0-3d0967892c1d" class="">&lt;h4&gt;&lt;/h4&gt;</p><p id="7bc77eda-445d-49d4-97f0-6605edda1d62" class="">&lt;h5&gt;&lt;/h5&gt;</p><p id="f7217e3c-aa5e-4ef0-93d7-934ba9b277aa" class="">&lt;h6&gt;&lt;/h6&gt;</p><p id="e6dc1d0f-2ac3-406b-a80a-22ad5409d8fc" class="">
+</p></div></div><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="67a85701-6e2c-4d7b-bcd5-623f43cba307"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Mas CUIDADO! Tamanho não é documento!</div></figure><p id="67a6187d-366c-43ad-93ca-350ecff4ed0e" class="">
+</p><p id="1e2c5a89-a8b6-4958-b5dd-26e477f2c828" class="">Tem muita gente por aí que acha que &lt;h1&gt; significa &quot;texto com fonte grande&quot; e &lt;h6&gt; &quot;texto com fonte pequena&quot;. Isso não tem fundamento nenhum!</p><p id="462b3adc-18d6-42c0-8f02-262d71460444" class="">
+</p><p id="432faa76-aba5-4a76-b2ce-ecf229e41b1b" class="">Um &lt;h1&gt; significa que esse é um assunto principal e é sobre ele que vamos escrever. Já o &lt;h2&gt; significa que esse é um subassunto de &lt;h1&gt;. O &lt;h3&gt; significa que esse é um subassunto do &lt;h2&gt;, e assim sucessivamente</p><p id="b2236986-33b6-434d-959f-137b6162c0df" class="">
+</p><p id="d78264e3-9875-40a8-89a9-5e42861029bc" class="">Agora um outro exemplo um pouco mais complexo, já com o ideal de títulos em mente</p><div id="25ecae8c-2cc9-4f7b-bcbd-bf0c3ec1cca0" class="column-list"><div id="b11d3a58-4481-4a75-957c-8d78ee88b6d9" style="width:50%" class="column"><figure id="146c7538-2eb9-4d50-982e-ca7b741b4f87" class="image"><a href="titulos/titulos.png"><img style="width:431px" src="titulos/titulos.png"/></a></figure></div><div id="08d830b7-92bb-4ab5-8359-313649a39de8" style="width:50%" class="column"><p id="caa8d5e5-dfcb-442a-9f55-3d4e4c290de1" class="">Você consegue ver que nesse sumário existem vários títulos de hierarquias diferentes?</p><p id="a1d85bf0-4848-4d02-8f8a-750c6bd11361" class="">Tente definir, em tags HTML, o que seria cada um</p></div></div><div id="f644aa72-0a3f-4d6a-9ee6-c866fff2bb65" class="column-list"><div id="4e76784c-7ae8-468f-a1f5-da3d86c48f24" style="width:31.25%" class="column"><p id="a8713d34-1f3f-4452-9da8-d3000533cd26" class="">E aqui está o resultado:</p></div><div id="8ff78f41-e74f-482b-bf24-863c3c9719c6" style="width:68.75%" class="column"><figure id="012827ea-6d51-4e88-b0a7-30d1033091a6" class="image"><a href="titulos/titulos%201.png"><img style="width:384px" src="titulos/titulos%201.png"/></a></figure><p id="f41d9972-f2d3-46fa-a2b1-b3d1503e1585" class="">
+</p></div></div><h2 id="c10bac9c-0e60-4de3-90e0-6bbb00730ac8" class="">Vamos à prática</h2><p id="246a8f9d-fc67-43ec-9f0a-53e531f5b035" class="">A missão agora é transformar o conteúdo da matéria que te mostrei no início do capítulo em uma página HTML. </p><p id="8da0afd2-9301-44d7-a772-6336d3ba1cd6" class="">Eu não vou me focar em digitar o texto dos parágrafos de cada seção, no lugar deles vou usar os famosos Lorem Ipsum genéricos.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9d7698ac-0b41-43f8-b4a8-058ddcdd76bc"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">CRIANDO LOREM AUTOMATICAMENTE: Até na hora de criar um Lorem Ipsum, o VS Code te ajuda. Dentro de um parágrafo recém criado, digite apenas a palavra lorem e pressione Enter. Pronto!</div></figure><p id="e5a3ec95-6c4b-4a96-b6e5-bd9ebc7f6380" class="">
+</p><p id="caa09f05-a266-4112-8a13-0f54c44d8b3f" class="">Crie a pasta ex04, o documento index.html, e insira o código base nele</p><p id="6583c9ff-bd0a-4bff-89cf-cea036a1950a" class="">
+</p><p id="64f1f532-ee6e-4593-931d-6ebbf71a0448" class="">Agora vamos começar colocando o título principal &quot;Falta de sintonia&quot;</p><p id="5ff5cc25-05a4-46a4-afaf-916f308e8b0e" class="">Adicione um paragráfo com Lorem Ipsum para simular o conteúdo</p><p id="42610e8a-be43-42b0-9da3-23146d6544d8" class="">Partiremos agora para os subtítulos, e colocaremos um parágrafo com Lorem Ipsum para cada um deles</p><p id="f97d1042-85a4-4b47-adf5-c6901755e33e" class="">Seu código deverá ficar semelhante a esse:</p><pre id="5aad90d8-b7a4-4cbb-8cb6-0af43ac90e8b" class="code code-wrap"><code>&lt;h1&gt;Falta de sintonia&lt;/h1&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. At expedita ullam quia t  empore consequatur voluptatibus quaerat. Nemo veritatis dolor doloribus nam fuga? Porro quis eligendi eveniet vitae dolore, voluptatum hic!
+&lt;/p&gt;
+&lt;h2&gt;Pense antes de agir&lt;/h2&gt;
+&lt;p&gt;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, est. Sed explicabo porro nihil delectus? Blanditiis totam minus doloremque odit possimus dolor harum obcaecati autem aspernatur nemo architecto, voluptatem quis.
+&lt;/p&gt;
+&lt;h2&gt;Passem mais tempo com seu desafeto&lt;/h2&gt;
+&lt;p&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda eum doloribus, tempora incidunt labore sint? Repellat, autem consequatur porro cupiditate itaque culpa, tempore accusamus iure assumenda, reprehenderit est aut repellendus!&lt;/p&gt;
+&lt;h2&gt;Saiba com quem está lidando&lt;/h2&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum obcaecati corrupti at laboriosam officia. Consequatur, tenetur dolores dolorem vitae sunt quo dicta consequuntur perferendis ducimus neque suscipit atque quos deserunt!&lt;/p&gt;
+&lt;h2&gt;Tenha objetividade&lt;/h2&gt;
+&lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus doloremque animi sint, dolore, asperiores laudantium praesentium vitae doloribus rerum temporibus amet nam quaerat tempora, beatae laboriosam assumenda? Tempore, repellendus id.&lt;/p&gt;</code></pre><p id="db94c4da-45e2-436f-b0b0-48a04c71e11d" class="">
+</p><h2 id="af6f556a-daa7-4a78-b8a6-88168675e639" class="block-color-red">Teste seus conhecimentos</h2><div id="7ce9df3c-1580-4860-bc70-038cefd5cc99" class="column-list"><div id="5fc7152e-051a-4101-9f38-5ef906464271" style="width:56.25%" class="column"><p id="cf03fd30-9d5d-4f75-a764-2ea6c2bbe87d" class="">Organize os títulos e o texto que está nesse arquivo:</p></div><div id="44dbb49a-7c3b-4cf8-b8c7-e1224364d1d6" style="width:43.75%" class="column"><figure id="247e51a4-851b-4fbf-99a4-41ce8d700179"><div class="source"><a target="_blank" href="titulos/texto.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e988830b-027b-4b13-a65e-bc9e0b53d2b9/texto.txt</a></div></figure></div></div><div id="10b75dec-d568-4884-9680-4c88a824a856" class="column-list"><div id="05106c5a-80b3-423e-bc3e-286a9d8d7d38" style="width:62.5%" class="column"><p id="91da5c1f-aebb-4163-b680-f7ba6f04668b" class="">De modo que fique com a hierarquia igual à desse pdf:</p></div><div id="60899ce1-b499-4663-a19c-e59fcbcf0c46" style="width:37.49999999999999%" class="column"><figure id="7056583b-b0b7-4c80-9244-034d8a4ded84"><div class="source"><a target="_blank" href="titulos/documento.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f8b5f48-65da-43d6-a79d-7618af37b063/documento.pdf</a></div></figure></div></div><p id="5040e047-779c-4bd8-9d41-b07da06543a7" class="">
+</p></div></article></body></html>
