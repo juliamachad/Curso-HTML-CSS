@@ -1,0 +1,655 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CSS inline style</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: #ebebeb;
+		background-color: #2f3437;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b39d2d79-8657-4508-9d3c-1d6ef81ade94" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔷</span></div><h1 class="page-title">CSS inline style</h1></header><div class="page-body"><p id="5967467f-5411-42fd-b349-6fe2afa5e73d" class="">Vamos começar pela técnica mais básica para aplicar estilos em áreas pontuais em nosso site, que é usando as CSS dentro de parâmetros de HTML5.</p><p id="35177af3-4712-404d-bb7c-53d5f6c98c7a" class="">
+</p><p id="882c84d3-41c8-4345-ab98-13fdb0d185a8" class="">Crie mais uma pasta (ex02) dentro da sua área de exercícios e crie um arquivo index.html com aquele código base que já fizemos.</p><p id="0f5d1f27-782b-4ab9-85e5-481990ded5ba" class="">Copie esse código e cole no &lt;body&gt; do seu arquivo</p><pre id="803afd11-bc93-4868-82fb-d9926e7e0ec4" class="code code-wrap"><code>&lt;h1&gt;Capítulo 1&lt;/h1&gt;
+&lt;h2&gt;Capítulo 1.1&lt;/h2&gt;
+&lt;p&gt;
+		Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum voluptatem 
+&lt;/p&gt;
+&lt;h2&gt;Capítulo 1.2&lt;/h2&gt;
+&lt;p&gt;
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, dolorem
+&lt;/p&gt;
+&lt;h1&gt;Capítulo 2&lt;/h1&gt;
+&lt;h2&gt;Capítulo 2.1&lt;/h2&gt;
+&lt;p&gt;
+		Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+&lt;/p&gt;</code></pre><div id="f01368a7-12fa-4819-85da-bda24dff5c72" class="column-list"><div id="ae8c2dba-59f3-46d9-9827-b5e39958f6a1" style="width:37.5%" class="column"><p id="6725bd47-8934-42a5-beb4-383fe2bb136e" class="">
+</p><p id="883d1cdc-6e92-4549-94e9-3361f632a8b6" class="">
+</p><p id="f17b1800-c5ac-46b3-bd23-f84e660a8fe2" class="">
+</p><p id="76f33c7e-c8c4-4d55-9a7e-bbde79bbe18f" class="">Abra o arquivo e você terá isso:</p></div><div id="c201264d-1c0d-47fa-9f5e-9a477bd0f899" style="width:62.5%" class="column"><figure id="5f6cf4fe-b5a2-4d5c-a776-8886d10511b1" class="image"><a href="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled.png"><img style="width:525px" src="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled.png"/></a></figure></div></div><p id="1822a4c0-225d-4921-ac48-d2dcda0a981c" class="">Agora vamos brincar um pouquinho pra você entender como o CSS funciona</p><p id="22ba4455-4ddc-459d-82c1-5d0300d4dff8" class="">
+</p><p id="4c3eead3-6f23-4b3b-bc50-a99e4d46b4e3" class="">Vamos começar nos focando na tag &lt;body&gt;  e aplicando um estilo diferente ao corpo da página. Adicione o parâmetro style e digite as duas declarações de font-family e color, conforme apresentado a seguir:</p><pre id="a4fbac11-b4de-47aa-92d2-b7f999085769" class="code code-wrap"><code>&lt;body style=&quot;font-family: Arial, Helvetica, sans-serif; color: blue;&quot;&gt;</code></pre><div id="2b547f7f-16a6-482e-aee5-2bcfadb05c66" class="column-list"><div id="5b228cc0-9690-43a7-ac0c-89bbfa3ad2f2" style="width:43.75%" class="column"><p id="1a2cd6f8-9a91-4a67-83d9-b32616164467" class="">Seu resultado visual deve ser esse:</p><p id="1cfac67d-b084-4a5c-a778-71aa78b0a92a" class="">
+</p><p id="76804629-fa2c-4700-987e-1422afab0df2" class="">Note que o formato da letra mudou (era Times e ficou em Arial) e a cor da fonte também foi alterado para azul. Se por acaso alguma dessas duas alterações não funcionou corretamente com você, confira seu código, pois algo foi digitado incorretamente</p><p id="05fda928-2dcf-4abd-8d26-c327ecab6692" class="">(Lembre-se de recarregar o navegador)</p></div><div id="be789021-c319-4bcb-a7ed-8ebd807a69b1" style="width:56.25%" class="column"><figure id="3f43222d-6a77-4d5d-ba29-9d164f0d4112" class="image"><a href="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%201.png"><img style="width:556px" src="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%201.png"/></a></figure></div></div><p id="c81109bd-7d6f-430d-be70-c9e64fa5f2a9" class="">
+</p><p id="f556e614-a9ea-46d1-8101-692d9124e904" class="">Vamos fazer mais uma alteração, dessa vez na linha do primeiro título do nosso código:</p><pre id="57bddf8d-ef69-4cf4-b204-429eaf49c1e0" class="code code-wrap"><code>&lt;h1 style=&quot;color: red;&quot;&gt;Capítulo 1&lt;/h1&gt;</code></pre><div id="8502584f-605c-4dfc-afef-50be82aed3e1" class="column-list"><div id="a5a57ca9-7c27-49c5-ad6f-fe7ede1d5272" style="width:50%" class="column"><p id="8bc1448b-b1de-4f4a-b37e-f1129b649731" class="">O resultado visual deve ser:</p><p id="518edc13-4d57-4249-8281-4bd81e3c8f18" class="">
+</p><p id="4f5c1483-f4db-4e34-9778-8cd3d4d3853e" class="">Note que apenas o Capítulo 1 ficou vermelho, o Capítulo 2 - que também é um h1 não teve alteração alguma. </p><p id="bae9c6fe-73cb-4bf2-8417-67c0f8f77ce4" class="">Isso acontece pois estamos fazendo configurações pontuais</p><p id="4482c8be-a087-46d5-8e65-25b67467a071" class="">
+</p><p id="bae56c53-f9ea-48e6-8ead-c2b6173ba25c" class="">
+</p></div><div id="d6eab919-63ce-4a8c-9b88-e0e214601f7d" style="width:50%" class="column"><figure id="8d10a007-d696-44e1-9201-f094040e57d0" class="image"><a href="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%202.png"><img style="width:557px" src="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%202.png"/></a></figure><p id="df6bf213-dd54-4209-99b4-e25d4f16ef35" class="">
+</p></div></div><h2 id="6ebbef7c-6695-4dd6-8fae-158a2dc5b728" class=""><mark class="highlight-red"><strong>Teste seus conhecimentos</strong></mark></h2><div id="c68c3c26-08d4-4571-8d29-a9bfc8ad6b40" class="column-list"><div id="57922822-8319-4b43-adf9-ed4dbbbc7c86" style="width:31.25%" class="column"><p id="636a9f0f-397b-4f73-af4a-a09a60fdeeee" class="">
+</p><p id="855fae16-6bc0-4499-95b6-84ef62009b91" class="">
+</p><p id="9923df19-7d8b-4d60-84a6-f90e07644dff" class="">Reproduza a figura ao lado, usando CSS inline que acabamos de aprender:</p><p id="25d0c5d1-f2ac-43c5-8b4b-697c4d9b2d3b" class="">
+</p></div><div id="125f10d9-3d18-4205-98cc-d7ad9a579618" style="width:68.75%" class="column"><figure id="d4e034d4-3cd2-4a7d-bfa8-db6456aad62e" class="image"><a href="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%203.png"><img style="width:521px" src="CSS%20inline%20style%20b39d2d79865745089d3c1d6ef81ade94/Untitled%203.png"/></a></figure></div></div></div></article></body></html>

@@ -1,0 +1,651 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Positions</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: #ebebeb;
+		background-color: #2f3437;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+	color: #000;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5da4d108-1d54-46f6-952c-7307bd1e8b21" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔷</span></div><h1 class="page-title">Positions</h1></header><div class="page-body"><p id="d78598e6-dcb2-489a-a91d-dbf1af518cac" class="">
+</p><p id="760866d9-e6d8-485a-8404-52322170f375" class="">A <strong>position</strong> propriedade especifica o tipo de método de posicionamento usado para um elemento.</p><div id="4af835c7-13e3-4c9c-88a0-8ac9e9648bab" class="column-list"><div id="14b0d308-69d4-4d82-b5d0-4f7a04c32d5b" style="width:50%" class="column"><p id="0a211614-3943-4997-8862-4962058cb183" class="">Existem cinco valores de posição diferentes:</p></div><div id="e56b83e0-0c5a-48ad-ad2a-bebfc98715ea" style="width:50%" class="column"><ul id="b7448cc1-80ba-4b6c-aaa4-d5b2c64bf863" class="bulleted-list"><li>static</li></ul><ul id="5a8a5998-0852-4ce6-9ff0-f3710bf67869" class="bulleted-list"><li>relative</li></ul><ul id="7977cdad-b11d-4021-aeac-f2b3643fa67b" class="bulleted-list"><li>fixed</li></ul><ul id="5799ff4f-fd7d-4079-8493-cb29b650758d" class="bulleted-list"><li>absolute</li></ul><ul id="e99b9803-da9f-42a5-ba14-073ad7824875" class="bulleted-list"><li>sticky</li></ul></div></div><p id="73f38aed-fe26-4929-9b78-131a6d719d16" class="">Os elementos são posicionados usando as propriedades <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, e <strong>right</strong>.  No entanto, essas propriedades não funcionarão a menos que a position propriedade seja definida primeiro. Eles também funcionam de forma diferente dependendo do valor da posição.</p><p id="f100e7ac-4281-4e9b-9c87-c1e981d24a7e" class="">Esses posicionamentos serão importantes quando tivermos muitos elementos na tela. Por enquanto, só com uma div, pouca diferença aparecerá</p><h3 id="6e494737-7148-446c-8bba-8bc0b5311ec9" class="">static</h3><p id="58f6e021-de60-4473-aa3a-b9d5c633dbb1" class="">Os elementos HTML são posicionados estáticos por padrão.</p><p id="c1b934d7-3d94-4850-a5b5-cda5f108b630" class="">Os elementos posicionados estáticos não são afetados pelas propriedades superior, inferior, esquerda e direita. (Utilizaremos margin para posicioná-los)</p><h3 id="b1348c3b-47be-40d7-a009-58aba6e6715d" class="">relative</h3><p id="6af53a22-e864-4df5-a940-1f6583edd80f" class="">O elemento está posicionado em relação à sua posição normal.</p><p id="64b6292f-06a0-45f2-83a2-f5a23e4b495f" class="">Definir as propriedades superior, direita, inferior e esquerda de um elemento relativamente posicionado fará com que ele seja ajustado para longe de sua posição normal. Outro conteúdo não será ajustado para caber em qualquer lacuna deixada pelo elemento.</p><h3 id="80e983e4-9853-484f-b62c-02a8b3245a9c" class="">fixed</h3><p id="0d9a802c-e74e-40dc-b9ab-a60b8ad23eb8" class="">Um elemento é posicionado em relação à janela de visualização, o que significa que ele sempre permanece no mesmo lugar, mesmo se a página for rolada. As propriedades superior, direita, inferior e esquerda são usadas para posicionar o elemento.</p><p id="ce75f8df-81fa-4900-af02-501175a99f20" class="">Um elemento fixo não deixa uma lacuna na página onde normalmente estaria localizado.</p><h3 id="c43944a6-0c4b-4aeb-b403-19104c7e4049" class="">absolute</h3><p id="5d171793-5173-465e-83a6-8d6b05ecaaa6" class="">O elemento é posicionado em relação ao ancestral posicionado mais próximo (em vez de posicionado em relação à janela de visualização, como fixo).</p><p id="b20ec005-5071-4ffd-b379-295080018bac" class="">Contudo; se um elemento posicionado de forma absoluta não tiver ancestrais posicionados, ele usará o corpo do documento e se moverá junto com a rolagem da página.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2c18a5fe-18ff-490e-8fad-370a3b92c849"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Nota: Um elemento &quot;posicionado&quot; é aquele cuja posição é qualquer coisa exceto static</div></figure><h3 id="ebfe9a56-ae73-4ec2-8c6d-66df844d61b7" class="">sticky</h3><p id="cc5dac6a-599c-4449-a31c-f155180c9229" class="">Um elemento é posicionado com base na posição de rolagem do usuário.</p><p id="8f8677ad-46ee-4227-8777-d5ba060ebc76" class="">Um elemento aderente alterna entre relative e fixed, dependendo da posição de rolagem. Ele é posicionado em relação até que uma determinada posição de deslocamento seja encontrada na janela de exibição - então, ele &quot;se fixa&quot; no lugar (como a posição: fixa)</p><p id="e63e8e08-ede6-40d4-9bba-c306c09cb3da" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="15b48e3d-d293-4e1a-8c62-53a0729796b6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Para entender melhor, de forma visual, a propriedade position, <a href="https://www.w3schools.com/css/css_positioning.asp">clique aqui</a>. Além disso, nesse mesmo site contém todas configurações possíveis de serem feitas com CSS. Dê uma olhada nas que não estudamos</div></figure><p id="5912b235-aff0-4445-ac56-6fe4be70f139" class="">
+</p><h2 id="5dd2dd3f-d92f-4e35-842f-3a9039d4f3e7" class="block-color-blue">Vamos à prática</h2><p id="4ca35747-5c15-4f4c-8008-98621283f0f4" class="">Sabe aqueles botões do WhatsApp que ficam sempre no canto inferior da tela em alguns sites? Vamos reproduzi-los 
+</p><p id="1b86e9c7-8d57-491d-aec1-9355e37a2428" class="">O ícone eu baixei o svg no <a href="https://www.iconfinder.com/">iconfinder</a>. É só pesquisar WhatsApp → clicar em svg → clicar em &quot;download icon in SVG&quot;</p><div id="e8965b4a-e5a4-4671-9746-20ba156e959a" class="column-list"><div id="a0b00646-7147-4a96-acf7-8481160e97c2" style="width:75%" class="column"><p id="be7c88b5-c7b3-4cbb-acca-00989b2ec4b9" class="">Crie uma pasta fotos e coloque esse arquivo lá. Depois disso eu o renomeei porque o nome veio estranho. Ficou assim:</p></div><div id="7a07ae5b-3ea7-40ef-b320-a6f1fca4c721" style="width:25%" class="column"><figure id="9c34f33a-be9b-472c-a9fd-7efc9b612425" class="image"><a href="posicoes/organizacao.png"><img style="width:148px" src="posicoes/organizacao.png"/></a></figure></div></div><p id="c957828a-ab62-4794-9ee3-b829734468df" class="">Na index criei uma div com a classe wpp_icon e coloquei uma tag de imagem com a url para o svg</p><pre id="2430accd-bda8-4548-a5a0-5f5279681f33" class="code code-wrap"><code>&lt;div class=&quot;wpp_icon&quot;&gt;
+        &lt;img src=&quot;./fotos/whatsapp.svg&quot; alt=&quot;whatsapp&quot;&gt;
+&lt;/div&gt;</code></pre><p id="ccf1d9c3-1e19-4c3f-82d1-98a26c67c4a3" class="">Se você conferir o resultado, terá um ícone gigante embaixo da sua outra div container, o que não é o que queremos</p><p id="e6856532-3008-4427-a0fe-0100694417e9" class="">
+</p><p id="28929823-30fb-4428-9040-1c93d9047ffe" class="">Estamos vamos estilizar a posição. Como vimos, a estilização que é em relação à janela de visualização é a position fixed
+Vou optar por colocá-lo no canto inferior direita, então definirei a distância que ele terá de baixo e da direita (você pode colocar em qualquer lugar)
+Além disso vou limitar seu tamanho. Podemos definir apenas a largura que a altura será proporcional
+Ficará assim:
+</p><pre id="a83b756a-9269-4c19-b600-ad5fc8cc3a8c" class="code code-wrap"><code>.wpp_icon{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+}</code></pre><p id="c8f94b1c-c510-4ec8-8e92-c8002ea76184" class="">Recarregando a página você perceberá que mesmo rolando a página, o ícone fica no mesmo lugar. Legal, né?!
+Mas assim é apenas um ícone, sem ser clicável e redirecionável. Para ele se tornar, basta colocarmos a tag de links &lt;a&gt; envolva do ícone, assim:</p><pre id="7d9dd167-4b58-450b-82c3-a7ba7ac4b79e" class="code code-wrap"><code>&lt;div class=&quot;wpp_icon&quot;&gt;
+      &lt;a href=&quot;https://www.google.com&quot;&gt;
+          &lt;img src=&quot;./fotos/whatsapp.svg&quot; alt=&quot;whatsapp&quot;&gt;
+      &lt;/a&gt;
+&lt;/div&gt;</code></pre><p id="e1ee9105-7727-436e-b0ca-13d06263920c" class="">
+</p></div></article></body></html>

@@ -1,0 +1,649 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Como usar Imagens</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: #ebebeb;
+		background-color: #2f3437;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+	color: #000;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f8da01bf-f4c2-4df7-83e1-0e17f82de45f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🛠️</span></div><h1 class="page-title">Como usar Imagens</h1></header><div class="page-body"><p id="e72611d2-64c9-4af7-98be-9037bcfb85f0" class="">Crie a pasta ex06 para treinarmos. Dentro dela crie uma pasta fotos</p><p id="b4c4877f-025d-43bc-adc3-b4be524e96b2" class="">Primeiro clique com o botão direito e faça o download dessas imagens:</p><div id="5276953f-e612-432a-a945-db78766f9ac5" class="column-list"><div id="96844cb5-2f7d-4bcb-b1f9-8bf6b7c7cdc9" style="width:46.666666666666664%" class="column"><figure id="de95f204-1029-42b5-9f48-9a78ded15ee4" class="image"><a href="../links/logo-html.png"><img style="width:336px" src="../links/logo-html.png"/></a></figure></div><div id="a6f2ed39-b8ad-42df-bd33-a8f235c00d5f" style="width:53.333333333333336%" class="column"><figure id="d9312cab-dc34-47a4-86d7-dc01395c26f6" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/logo-css.png"><img style="width:288px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/logo-css.png"/></a></figure></div></div><div id="c8e8e9ea-a5c5-45dc-a28f-365e0df94fb5" class="column-list"><div id="625e7a49-ec2f-44a7-bcc4-ce65e479b3cb" style="width:68.75%" class="column"><p id="d7a88406-97b7-4fff-a511-c3529e6da1ed" class="">Vamos fazer o seguinte: coloque a logo html na pasta raiz do projeto (onde está o index.html), e coloque a logo css dentro da pasta fotos</p></div><div id="14aa9c7d-687b-4eee-9501-d3e91a31cab8" style="width:31.25%" class="column"><figure id="106b0f3b-2b18-48da-b8e3-b30845fc93da" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled.png"><img style="width:158px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled.png"/></a></figure></div></div><p id="01c7a05c-1f4b-48c0-9c34-3fe2af4950f5" class="">A posição dos seus arquivos vai fazer diferença e você deverá adaptar seu código para 
+poder carregar as imagens sem problemas.</p><p id="331b8ff1-e312-4716-b4c8-e733c4413a88" class="">
+</p><p id="3a1ed198-aace-4a50-b46c-f4e2855e3557" class="">Para adicionar imagens utilizamos a tag &lt;img&gt;&lt;/img&gt; </p><div id="aab3614c-eaf3-42ff-a338-23d535abc331" class="column-list"><div id="aff033ec-9294-4116-823e-f5955fdddb96" style="width:43.75%" class="column"><p id="04107971-3011-47c9-9d66-1440087221aa" class="">Ela possui dois parâmetros importantes: </p><p id="c3ccae8f-0a5b-48af-bec3-1f53dae2ac47" class="">
+</p></div><div id="c57d78e2-8e74-4b05-a4a9-115144ca7855" style="width:56.25%" class="column"><ul id="29b7d916-2152-49ba-824c-5d1fad9fc0a5" class="bulleted-list"><li>src (que vem de source, origem)</li></ul><ul id="d463f913-421e-4b7b-a1e2-5ee00489eb87" class="bulleted-list"><li>alt (que vem de alternative ou texto alternativo)</li></ul></div></div><div id="fdacde59-7132-44ca-bdb8-2b3e1ec74b84" class="column-list"><div id="4f1e9f2d-4bdd-417c-a681-52694e8b1fcc" style="width:68.75%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="3946484d-d9b1-41ba-8573-93d17e1a3479"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Aqui vai uma DICA IMPORTANTE: quando for carregar uma imagem no Visual Studio Code, não digite a tag &lt;img&gt; com os colchetes angulares. No lugar disso, digite apenas img e o próprio editor vai sugerir a inserção da imagem, ai é só dar enter e ele já cria o código incluindo as propriedades básicas</div></figure></div><div id="55291209-f54d-449b-ac97-b70e2a295a16" style="width:31.249999999999993%" class="column"><figure id="9d5dc0a3-9995-4f0d-81ce-845e1c1e17e8" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%201.png"><img style="width:144px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%201.png"/></a></figure><figure id="60d79669-8ab6-425f-a000-4bfb75f09a73" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%202.png"><img style="width:192px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%202.png"/></a></figure></div></div><h2 id="65aab7e2-2e7a-4052-a8f0-48101e533b44" class=""><mark class="highlight-orange">Parâmetro src</mark></h2><div id="9ac6a1e4-bbc6-4c42-bf2c-f15234f78e86" class="column-list"><div id="62e4e869-8c1d-46ac-b76c-aec5b240148c" style="width:68.75%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bdf04467-2ac1-4f17-af4b-5518af2f8f96"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Mais uma DICA: com cursor do teclado dentro das aspas do parâmetro src, pressione Ctrl+Espaço e mais uma mágica vai acontecer. Como a imagem ao lado mostra, o editor vai te mostar uma listagem com todos os arquivo disponíveis na pasta do seu projeto. Escolha o arquivo clicando em logo-html.png para que você nem precise digitar o nome dele.</div></figure></div><div id="4e04fe3b-96bd-48f0-ac72-3b9ecd1503f3" style="width:31.250000000000007%" class="column"><p id="e1680fc9-3138-4022-b87b-837ffe32f50a" class="">
+</p><figure id="cc171dac-2ed8-452f-a3fd-019506b6a41b" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%203.png"><img style="width:240px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%203.png"/></a></figure><p id="c91e20e2-06e2-4172-95d7-a9776f8cd593" class="">
+</p></div></div><p id="1ae70fe6-8952-4cb9-b28f-996ad04fccff" class="">Utilize dessa dica para fazer o mesmo adicionando a logo css, mas dessa vez, como ela está na pasta fotos, primeiro vc seleciona a pasta, e depois o arquivo</p><p id="458125a2-4173-43af-bc66-e4e442f36e1f" class="">
+</p><div id="28a5f842-bd1a-4559-b4d3-1106ead331f4" class="column-list"><div id="e52fa761-ddcf-4ea7-99c3-b34310195b8b" style="width:50%" class="column"><p id="480cf615-6b3c-488f-b4e2-760afd41c923" class="">Seu código deve ficar assim:</p><p id="d8a4d2ce-8d19-48ed-8cf0-e45935c15c54" class="">Perceba que quando o arquivo está em uma pasta diferente do HTML é necessário colocar o nome da pasta e uma barra antes do nome do arquivo</p></div><div id="ccbc481f-517d-4173-95b1-1a98ed5889a4" style="width:50%" class="column"><pre id="6fd0e60a-f232-43cb-916c-7d8e10aa6f7e" class="code code-wrap"><code>&lt;img src=&quot;logo-html.png&quot; alt=&quot;&quot;&gt;
+&lt;img src=&quot;fotos/logo-css.png&quot; alt=&quot;&quot;&gt;</code></pre></div></div><p id="411b1227-906e-42f9-ad66-1f591d8a74cd" class="">Nós também podemos inserir imagens de links externos, que não estão na pasta do nosso projeto. É só colar o endereço completo da imagem (URL) no parâmetro scr, como nesse exemplo:</p><pre id="068ac204-49e3-4095-b61a-e9504c2a7c46" class="code code-wrap"><code>&lt;img src=&quot;https://i.ibb.co/kqd9hpz/js-logo.png&quot; alt=&quot;&quot;&gt;</code></pre><p id="9f4ccfcd-f5d1-4dce-8521-f58cbe3376ea" class="">Para copiar endereço das imagens na internet é só clicar com o botão direito e <em>“Copiar endereço da imagem”</em></p><p id="90d02567-b78f-4bbd-a163-7de087ab90f1" class="">Teste tudo para ver se está dando certo</p><h2 id="3a8ee9a6-8953-4413-bdf8-b52ce5c4c251" class=""><mark class="highlight-orange">Parâmetro alt</mark></h2><p id="0c638599-a205-42c3-b064-008cccb0d798" class="">Toda imagem deve ter um texto alternativo. </p><p id="5f3205b4-84d2-4250-8ec7-7c99d41186f5" class="">Textos alternativos ajudam muito na indexação do seu site em mecanismos de busca e também ajudam muito na Acessibilidade, pois se um visitante for deficiente visual, seu navegador vai ser capaz de descrever que tipo de foto está sendo mostrada ali.</p><p id="b7e35fb0-3de7-4330-a8d7-a8f54716e5dc" class="">
+</p><p id="8a7a89e3-0c71-4743-9d6b-6e1a19a0533d" class="">Tente ser objetivo na descrição da sua imagem, mas crie textos que fazem sentido. 
+Tem um monte de gente que coloca o texto “foto” como descrição de uma imagem. Aí não da, né?!</p><p id="1d6ce4ec-5def-44aa-a87a-2d456fb17466" class="">
+</p><p id="f2ff5a00-61d6-4efe-b278-22838b872dc0" class="">Os textos alternativos também auxiliam o Google a saber o que tem dentro da sua 
+foto e exibi-la nos resultados de busca do Google Imagens.</p><p id="94c06e44-d27f-42ea-abe8-4fc19c6db397" class="">
+</p><h2 id="d6b270e2-c6ec-42ec-ac32-baea31ffdab3" class=""><mark class="highlight-orange">Favicon</mark></h2><div id="66dfe143-fc33-489a-b250-c982c1b0bbca" class="column-list"><div id="c781e315-d4d6-4681-9efd-6800ca04b520" style="width:68.75%" class="column"><p id="77e7229a-b76d-4100-ba87-3b262e5c383e" class="">Já viu aqueles pequenos ícones que aparecem ao lado do Título dos sites que visitamos, na aba do seu navegador? </p><p id="6c47cfb2-54bb-42da-8a96-f10630996bd6" class="">É o mesmo local onde aparecem o texto que você colocou na tag &lt;title&gt;&lt;/title&gt;</p><p id="450277bf-7739-456b-9624-8d45e6e921f3" class="">Esse é o favicon</p></div><div id="834b99c3-b5c5-4e3b-91d7-c774d8ff6028" style="width:31.25%" class="column"><p id="c7eeb3a0-41c5-4fd3-b890-a5f601c2fe15" class="">
+</p><figure id="51c7d6d6-b5ba-4e3a-9827-703baaa775aa" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%204.png"><img style="width:192px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%204.png"/></a></figure></div></div><div id="fb39a704-72ec-49b6-a94c-d78dc9975663" class="column-list"><div id="f3bc909c-38f2-411b-8146-9bf38a08b318" style="width:75%" class="column"><p id="b83cbc80-f9b9-42ac-9fe0-22293491d5ba" class="">Faça o download dessa logo da ijunior, que vamos utilizar para testar:</p><p id="35755d2c-7cc1-4b6b-97ad-588c9a007684" class="">Ela está em formato <strong>SVG</strong>, que quer dizer que é vetorizada, mas o favicon também aceita <strong>PNG</strong> e <strong>ICO</strong></p></div><div id="df54a661-9921-4f58-94fa-a52c6ef3c9f0" style="width:24.999999999999996%" class="column"><figure id="5b4b140d-ca31-444c-ad15-856392e553e3" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/simbolologo.svg"><img style="width:96px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/simbolologo.svg"/></a></figure></div></div><div id="b4f92026-7aaa-41d3-be40-9a332791f2dd" class="column-list"><div id="1cf6c2d8-0fe6-4722-a340-786a1e04976a" style="width:50%" class="column"><p id="af56b085-e71a-4519-a643-6a523dc62e87" class="">Essa configuração, semelhante ao title, é feita na head</p><p id="7b7fc47c-f22f-4651-9734-301eb164bc2c" class="">Digitando apenas &quot;link&quot; e aparecerão várias opções, escolha link:favicon </p><p id="57e28af3-295d-4e54-bdc1-055b6e055bc3" class="">
+</p></div><div id="67369bfe-4ce1-483e-a104-ae9b8e7551d3" style="width:50%" class="column"><figure id="ef20662e-8947-44be-bb9b-cc6cc064326c" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%205.png"><img style="width:212px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%205.png"/></a></figure><p id="9e1bbfee-68b1-476e-be83-7bc1091e973d" class="">
+</p></div></div><p id="e6422bfd-0ab8-4687-a448-221b65ff1586" class="">Preencha o href com o nome do arquivo (se der Ctrl+Espaço também aparecem as opções)</p><p id="f93ab3a7-e40b-472b-86c4-21def30e076b" class="">Sua head devera ficar assim:</p><pre id="7c7d0df7-b83f-48cc-9918-3ff54e1f6f9d" class="code code-wrap"><code>&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Imagens&lt;/title&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;simbolologo.svg&quot; type=&quot;image/x-icon&quot;&gt;
+&lt;/head&gt;</code></pre><div id="1b9e2a0d-475d-4c99-ab46-8d751b651e27" class="column-list"><div id="857faeaa-ee9c-4ca7-b001-d4c1cd25bbac" style="width:56.25%" class="column"><p id="3e20511d-4b99-47a6-a720-238abca03cda" class="">Pronto! Abra o navegador e esse será o resultado:</p></div><div id="51dbe128-05e6-4f68-8fbf-22fe92b89ffa" style="width:43.75%" class="column"><figure id="3713028c-d203-4999-9b54-0c7a0419109f" class="image"><a href="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%206.png"><img style="width:240px" src="Como%20usar%20Imagens%20f8da01bff4c24df783e10e17f82de45f/Untitled%206.png"/></a></figure></div></div></div></article></body></html>
