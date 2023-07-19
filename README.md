@@ -5,6 +5,8 @@ Este curso foi produzido para ensinar e avaliar o básico de HTML e CSS aos part
 Separei alguns tópicos que julguei mais importantes, visto que a intenção é ser um curso rápido. 
 
 Todos contam com um vídeo, um texto explicativo, exemplos, e exercícios,que nos possibilitarão acompanhar o ritmo e nível de aprendizado.
+Voce pode baixar o curso completo por aqui, ou acessá-lo online com esse link: https://fish-lavender-55f.notion.site/HTML-CSS-1ad2b25b48c1469eab96e7c738ebf9eb?pvs=4
+
 Link dos videos: https://drive.google.com/drive/folders/1DSW3Jb4RfpvtjnsDVJWK-inyg6Jq6l6_?usp=sharing
 
 
